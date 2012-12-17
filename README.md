@@ -1,56 +1,77 @@
 ECMS-UEditor
 ============
 
-帝国整合百度编辑器
-/*
- * -+------------------------------------------------------------------------+-
- * | Author : pkkgu （QQ：910111100）
- * | Contact: http://t.qq.com/ly0752
- * | LastUpdate: 2012-12-14
- * -+------------------------------------------------------------------------+-
- */ 
-
+帝国CMS整合百度编辑器UEditor
 UEditor Version 1.2.4
 EmpireCMS Version v6.6
 
 
 UEditor1.2.4整合帝国ECMS6.6以插件形式替换帝国ECMS中的默认编辑器。
+
 1.带前台和后台图片、附件批量上传、涂鸦、插入WORD图片、远程保存图片、屏幕截图。
+
 2.PHP上传处理部自动区分后台管理员，前台会员
+
 3.上传权限控制附件和图片类型、大小等整合了帝国ECMS系统配置
+
 4.图片、附件和涂鸦存等文件放目录已整合帝国ECMS
+
 5.使用方便，只需要修改字段HTML即可，无需要修改其他
-6.兼容性处理、解决某些浏览器dialogs可能错位问题(这问题是帝国程序问题)
-  /e/admin/AddNews.php，333行 、<html> 改为
+
+6.兼容性处理、解决某些浏览器dialogs可能错位问题(这问题是帝国程序问题)"/e/admin/AddNews.php"，第333行“<html>” 改为
+  
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
   <html xmlns="http://www.w3.org/1999/xhtml">
 
 
 //================================使用方法：================================================
+
 使用方法：
 一、系统——管理数据表——管理字段——修改newstext字段——“输入表单”和“投稿表单”html代码，换成下面代码
+
     <?php include(ECMS_PATH.'/e/data/ecmseditor/ueditor/php/editor.php');?>
+    
 二、将UEditor文件夹放到\e\data\ecmseditor\目录下
+
 三、就是这么简单。***初级用用户到此，帝国ECMS6.6+UEditor1.2.4就已经整合完成！
+
 
 //================================高级应用=================================================
 
+<?php include(ECMS_PATH.'/e/data/ecmseditor/ueditor/php/editor.php');?>
+
 <?php
+
 //自定义编辑器字段（不设置默认帝国新闻字段newstext）例如：简介字段加上编辑器
+
 $field      = 'smalltext';
+
 // 1加水印 0不水印 (使用水印功能，要很先设置“系统参数设置——图片设置”相关参数)
+
 $getmark    = 1;
+
 //附件存入指定栏目
+
 $ue_classid = 1;
+
 //编辑器工具栏设置
+
 $toolbars   = "'FullScreen','Source','Undo','Redo','Bold'";
+
 //编辑器宽度 值true、false和数值
+
 $ue_width   = '1000';
+
 //编辑器高度 值true、false和数值
+
 $ue_height  = '320';
+
 //不设默认引用JQurey-1.8.3，值为1不引用
+
 $ue_jquery=1;
+
 include(ECMS_PATH.'/e/data/ecmseditor/ueditor/php/editor.php');
+
 ?>
 
 //==========UEditor 修改记录 整合系统可以忽略以下内容，升级编辑器是可以参考 ===============
